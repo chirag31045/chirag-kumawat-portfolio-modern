@@ -152,21 +152,25 @@ export default function App() {
           onClick={() => scrollTo("home")}
           aria-label="Home"
         >
-          <span className="brand-mark">CK</span>
+          <span className="brand-mark">&lt;/&gt;</span>
           <span className="brand-name">
             Chirag<span>.</span>
           </span>
         </button>
 
         <nav className={menu ? "nav-links open" : "nav-links"}>
-          {["about", "skills", "experience", "education", "contact"].map(
-            (x, i) => (
-              <button key={x} onClick={() => scrollTo(x)}>
-                <small>0{i + 1}</small>
-                {x}
-              </button>
-            ),
-          )}
+          {[
+            ["about", "About"],
+            ["skills", "Skills"],
+            ["experience", "Experience"],
+            ["education", "Education"],
+            ["contact", "Contact"],
+          ].map(([id, label], i) => (
+            <button key={id} onClick={() => scrollTo(id)}>
+              <small>0{i + 1}</small>
+              <span>{label}</span>
+            </button>
+          ))}
         </nav>
 
         <div className="nav-actions">
@@ -184,6 +188,17 @@ export default function App() {
             rel="noreferrer"
           >
             <Github size={18} />
+          </a>
+          <a
+            className="hire-button"
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollTo("contact");
+            }}
+          >
+            Let's Talk
+            <ArrowUpRight size={14} />
           </a>
           <button className="mobile-menu" onClick={() => setMenu(!menu)}>
             {menu ? <X /> : <Menu />}
@@ -474,10 +489,13 @@ export default function App() {
                 </article>
               ))}
             </div>
-
             <div className="cert">
               <div className="cert-icon">
-                <Layers3 />
+                <img
+                  src="https://media.licdn.com/dms/image/v2/C560BAQGADfLJX3Fd7Q/company-logo_200_200/company-logo_200_200/0/1631302415770?e=2147483647&v=beta&t=vS4d1fjCK9svvq9ZZY_pwh7AGno3z90Sag_va6BTJy4"
+                  alt="Ducat Logo"
+                  className="ducat-logo"
+                />
               </div>
 
               <div className="cert-content">
@@ -560,7 +578,7 @@ export default function App() {
               className="brand footer-brand"
               onClick={() => scrollTo("home")}
             >
-              <span className="brand-mark">CK</span>
+              <span className="brand-mark">&lt;/&gt;</span>
               <span className="brand-name">
                 Chirag<span>.</span>
               </span>
